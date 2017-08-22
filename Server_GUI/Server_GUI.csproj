@@ -33,6 +33,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Server_GUI.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -89,6 +92,9 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <None Include="Server_GUI.manifest">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -97,6 +103,10 @@
     <ProjectReference Include="..\HTTP-Server\HTTP-Server.csproj">
       <Project>{3d4ce83a-4e7b-455e-b2e1-aa4ed49c9e40}</Project>
       <Name>HTTP-Server</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\timeClock\TimeClock.csproj">
+      <Project>{31859efc-f3b8-41d6-9ba2-90c8df197a52}</Project>
+      <Name>TimeClock</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

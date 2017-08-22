@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server_GUI", "Server_GUI.cs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HTTP-Server", "..\HTTP-Server\HTTP-Server.csproj", "{3D4CE83A-4E7B-455E-B2E1-AA4ED49C9E40}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeClock", "..\timeClock\TimeClock.csproj", "{31859EFC-F3B8-41D6-9BA2-90C8DF197A52}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{3D4CE83A-4E7B-455E-B2E1-AA4ED49C9E40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D4CE83A-4E7B-455E-B2E1-AA4ED49C9E40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D4CE83A-4E7B-455E-B2E1-AA4ED49C9E40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31859EFC-F3B8-41D6-9BA2-90C8DF197A52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31859EFC-F3B8-41D6-9BA2-90C8DF197A52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31859EFC-F3B8-41D6-9BA2-90C8DF197A52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31859EFC-F3B8-41D6-9BA2-90C8DF197A52}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

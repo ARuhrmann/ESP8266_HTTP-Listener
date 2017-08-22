@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using HTTP_Server;
+using CopagoTime;
 using System.Diagnostics;
 
 namespace Server_GUI
@@ -27,6 +28,8 @@ namespace Server_GUI
             InitializeComponent();
             Server server = new Server();
             this.DataContext = server;
+            TimeClock timeClock = new TimeClock();
+            Console.WriteLine(timeClock.GetNetworkTime());
         }
     }
 }
