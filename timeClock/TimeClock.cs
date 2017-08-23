@@ -8,6 +8,10 @@ using System.Security.Cryptography;
 
 namespace CopagoTime
 {
+
+    /// 
+    /// ToDo: https://stackoverflow.com/questions/17552829/c-sharp-data-connections-best-practice
+    /// 
     public class TimeClock
     {
 
@@ -50,13 +54,13 @@ namespace CopagoTime
 
                     string s = "Select count(*) From CPG_Stempelzeiten WHERE cast(Kommt As Date) = '" + Zeitpunkt.ToString("yyyy-MM-dd") + "' AND BenutzerID = " + employee.BenutzerID;
                     cmd.CommandText = s;
-                    int Erste_Tagesbuchung =(int) cmd.ExecuteScalar();
-                          
+                    int Erste_Tagesbuchung = (int)cmd.ExecuteScalar();
+
                     if (Erste_Tagesbuchung != 0)
                     {
                         Anfangs_Puffer = 0;
                     }
-                    
+
                     s = "Insert into CPG_Stempelzeiten (BenutzerID, PersonalNr, KartenNr, Kommt) Values (";
                     s = s + " " + employee.BenutzerID;
                     s = s + ", " + employee.Personalnummer;
@@ -67,9 +71,9 @@ namespace CopagoTime
 
                     s = "Select MAX(id) From CPG_Stempelzeiten WHERE BenutzerID = " + employee.BenutzerID;
                     cmd.CommandText = s;
-                    int StempelzeitenNr = (int) cmd.ExecuteScalar();
+                    int StempelzeitenNr = (int)cmd.ExecuteScalar();
 
-                    
+
                     s = "Insert into CPG_Stempelzeiten_temp (BenutzerID, PersonalNr, KartenNr,StempelzeitenNr, Kommt) Values (";
                     s = s + " " + employee.BenutzerID;
                     s = s + ", " + employee.Personalnummer;
@@ -85,15 +89,15 @@ namespace CopagoTime
                     s = s + ", '" + get_Festschreibung_K(StempelzeitenNr, employee.BenutzerID, Zeitpunkt.AddMinutes(Anfangs_Puffer)) + "') ";
                     cmd.CommandText = s;
                     cmd.ExecuteNonQuery();
-                    
+
                     // Buchung vervollständigen
                 }
                 else if (tblStempelzeiten_temp.Rows.Count == 1)
                 {
 
-                    int StempelzeitenNr = tblStempelzeiten_temp.Rows(0).Item("StempelzeitenNr");
+                    int StempelzeitenNr = (int)tblStempelzeiten_temp.Rows[0]["StempelzeitenNr"];
                     DateTime kommt = DateTime.MinValue;
-                    bool kommt_OK = DateTime.TryParse(tblStempelzeiten_temp.Rows(0).Item("kommt"), kommt);
+                    bool kommt_OK = DateTime.TryParse(tblStempelzeiten_temp.Rows[0]["Kommt"].ToString(), out kommt);
 
 
                     if (kommt_OK)
